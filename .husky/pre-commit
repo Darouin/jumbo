@@ -1,0 +1,8 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+#npx lint-staged
+npm run pretty-quick:staged
+
+# Debug mode
+#exit 1

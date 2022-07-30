@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * Unit tests for the {@link ClientForwardController} REST controller.
  */
-class ClientForwardControllerTest {
+class ClientForwardControllerIntTest {
 
   private MockMvc restMockMvc;
 

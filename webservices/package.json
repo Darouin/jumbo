@@ -123,6 +123,7 @@
     "fork-ts-checker-webpack-plugin": "6.5.0",
     "generator-jhipster": "7.4.1",
     "html-webpack-plugin": "5.5.0",
+    "husky": "^6.0.0",
     "jest": "27.4.3",
     "jest-junit": "13.0.0",
     "jest-serializer-vue": "2.0.2",

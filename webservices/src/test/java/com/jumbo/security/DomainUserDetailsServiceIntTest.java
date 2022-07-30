@@ -19,7 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Transactional
 @IntegrationTest
-class DomainUserDetailsServiceIT {
+class DomainUserDetailsServiceIntTest {
 
   private static final String USER_ONE_LOGIN = "test-user-one";
   private static final String USER_ONE_EMAIL = "test-user-one@localhost";

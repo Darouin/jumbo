@@ -26,7 +26,7 @@ import tech.jhipster.security.RandomUtil;
  */
 @IntegrationTest
 @Transactional
-class UserServiceIT {
+class UserServiceIntTest {
 
   private static final String DEFAULT_LOGIN = "johndoe";
 

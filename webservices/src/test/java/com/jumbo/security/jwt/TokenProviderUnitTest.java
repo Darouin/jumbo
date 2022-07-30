@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.*;
 
 import com.jumbo.management.SecurityMetersService;
 import com.jumbo.security.AuthoritiesConstants;
+import io.github.jhipster.config.JHipsterProperties;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
@@ -21,9 +22,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.test.util.ReflectionTestUtils;
-import tech.jhipster.config.JHipsterProperties;
 
-class TokenProviderTest {
+class TokenProviderUnitTest {
 
   private static final long ONE_MINUTE = 60000;
 

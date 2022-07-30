@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/exception-translator-test")
-public class ExceptionTranslatorTestController {
+public class ExceptionTranslatorControllerIntTest {
 
   @GetMapping("/concurrency-failure")
   public void concurrencyFailure() {

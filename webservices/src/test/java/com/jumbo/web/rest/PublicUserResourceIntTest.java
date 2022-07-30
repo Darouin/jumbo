@@ -24,7 +24,7 @@ import org.springframework.transaction.annotation.Transactional;
 @AutoConfigureMockMvc
 @WithMockUser(authorities = AuthoritiesConstants.ADMIN)
 @IntegrationTest
-class PublicUserResourceIT {
+class PublicUserResourceIntTest {
 
   private static final String DEFAULT_LOGIN = "johndoe";
 
@@ -41,7 +41,7 @@ class PublicUserResourceIT {
 
   @BeforeEach
   public void initTest() {
-    user = UserResourceIT.initTestUser(userRepository, em);
+    user = UserResourceIntTest.initTestUser(userRepository, em);
   }
 
   @Test

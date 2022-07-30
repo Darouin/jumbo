@@ -1,6 +1,6 @@
 package com.jumbo.web.rest;
 
-import static com.jumbo.web.rest.AccountResourceIT.*;
+import static com.jumbo.web.rest.AccountResourceIntTest.*;
 import static org.assertj.core.api.Assertions.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -37,7 +37,7 @@ import org.springframework.transaction.annotation.Transactional;
 @AutoConfigureMockMvc
 @WithMockUser(value = TEST_USER_LOGIN)
 @IntegrationTest
-class AccountResourceIT {
+class AccountResourceIntTest {
 
   static final String TEST_USER_LOGIN = "test";
 

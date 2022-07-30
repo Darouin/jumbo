@@ -15,7 +15,7 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import tech.jhipster.config.JHipsterDefaults;
 import tech.jhipster.config.JHipsterProperties;
 
-class StaticResourcesWebConfigurerTest {
+class StaticResourcesWebConfigurerIntTest {
 
   public static final int MAX_AGE_TEST = 5;
   public StaticResourcesWebConfiguration staticResourcesWebConfiguration;

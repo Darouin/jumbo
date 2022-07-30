@@ -7,13 +7,13 @@ import static org.mockito.Mockito.*;
 import com.jumbo.IntegrationTest;
 import com.jumbo.config.Constants;
 import com.jumbo.domain.User;
+import io.github.jhipster.config.JHipsterProperties;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.net.URI;
 import java.net.URL;
-import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.Properties;
 import java.util.regex.Matcher;
@@ -33,13 +33,12 @@ import org.springframework.context.MessageSource;
 import org.springframework.mail.MailSendException;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.thymeleaf.spring5.SpringTemplateEngine;
-import tech.jhipster.config.JHipsterProperties;
 
 /**
  * Integration tests for {@link MailService}.
  */
 @IntegrationTest
-class MailServiceIT {
+class MailServiceIntTest {
 
   private static final String[] languages = {
     // jhipster-needle-i18n-language-constant - JHipster will add/remove languages in this array

@@ -9,7 +9,7 @@ import java.util.Collection;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class SecurityMetersServiceTests {
+class SecurityMetersServiceUnitTest {
 
   private static final String INVALID_TOKENS_METER_EXPECTED_NAME = "security.authentication.invalid-tokens";
 

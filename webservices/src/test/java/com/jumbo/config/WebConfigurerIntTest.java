@@ -31,7 +31,7 @@ import tech.jhipster.config.JHipsterProperties;
 /**
  * Unit tests for the {@link WebConfigurer} class.
  */
-class WebConfigurerTest {
+class WebConfigurerIntTest {
 
   private WebConfigurer webConfigurer;
 

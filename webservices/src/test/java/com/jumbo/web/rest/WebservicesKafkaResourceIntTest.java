@@ -25,7 +25,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.testcontainers.containers.KafkaContainer;
 import org.testcontainers.utility.DockerImageName;
 
-class WebservicesKafkaResourceIT {
+class WebservicesKafkaResourceIntTest {
 
   private static boolean started = false;
   private static KafkaContainer kafkaContainer;

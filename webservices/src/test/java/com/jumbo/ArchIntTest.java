@@ -7,7 +7,7 @@ import com.tngtech.archunit.core.importer.ClassFileImporter;
 import com.tngtech.archunit.core.importer.ImportOption;
 import org.junit.jupiter.api.Test;
 
-class ArchTest {
+class ArchIntTest {
 
   @Test
   void servicesAndRepositoriesShouldNotDependOnWebLayer() {
