@@ -1,6 +1,6 @@
 package com.jumbo.management;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.*;
 
 import io.micrometer.core.instrument.Counter;
 import io.micrometer.core.instrument.MeterRegistry;
@@ -11,60 +11,60 @@ import org.junit.jupiter.api.Test;
 
 class SecurityMetersServiceTests {
 
-    private static final String INVALID_TOKENS_METER_EXPECTED_NAME = "security.authentication.invalid-tokens";
+  private static final String INVALID_TOKENS_METER_EXPECTED_NAME = "security.authentication.invalid-tokens";
 
-    private MeterRegistry meterRegistry;
+  private MeterRegistry meterRegistry;
 
-    private SecurityMetersService securityMetersService;
+  private SecurityMetersService securityMetersService;
 
-    @BeforeEach
-    public void setup() {
-        meterRegistry = new SimpleMeterRegistry();
+  @BeforeEach
+  public void setup() {
+    meterRegistry = new SimpleMeterRegistry();
 
-        securityMetersService = new SecurityMetersService(meterRegistry);
-    }
+    securityMetersService = new SecurityMetersService(meterRegistry);
+  }
 
-    @Test
-    public void testInvalidTokensCountersByCauseAreCreated() {
-        meterRegistry.get(INVALID_TOKENS_METER_EXPECTED_NAME).counter();
+  @Test
+  public void testInvalidTokensCountersByCauseAreCreated() {
+    meterRegistry.get(INVALID_TOKENS_METER_EXPECTED_NAME).counter();
 
-        meterRegistry.get(INVALID_TOKENS_METER_EXPECTED_NAME).tag("cause", "expired").counter();
+    meterRegistry.get(INVALID_TOKENS_METER_EXPECTED_NAME).tag("cause", "expired").counter();
 
-        meterRegistry.get(INVALID_TOKENS_METER_EXPECTED_NAME).tag("cause", "unsupported").counter();
+    meterRegistry.get(INVALID_TOKENS_METER_EXPECTED_NAME).tag("cause", "unsupported").counter();
 
-        meterRegistry.get(INVALID_TOKENS_METER_EXPECTED_NAME).tag("cause", "invalid-signature").counter();
+    meterRegistry.get(INVALID_TOKENS_METER_EXPECTED_NAME).tag("cause", "invalid-signature").counter();
 
-        meterRegistry.get(INVALID_TOKENS_METER_EXPECTED_NAME).tag("cause", "malformed").counter();
+    meterRegistry.get(INVALID_TOKENS_METER_EXPECTED_NAME).tag("cause", "malformed").counter();
 
-        Collection<Counter> counters = meterRegistry.find(INVALID_TOKENS_METER_EXPECTED_NAME).counters();
+    Collection<Counter> counters = meterRegistry.find(INVALID_TOKENS_METER_EXPECTED_NAME).counters();
 
-        assertThat(counters.size()).isEqualTo(4);
-    }
+    assertThat(counters.size()).isEqualTo(4);
+  }
 
-    @Test
-    public void testCountMethodsShouldBeBoundToCorrectCounters() {
-        assertThat(meterRegistry.get(INVALID_TOKENS_METER_EXPECTED_NAME).tag("cause", "expired").counter().count()).isEqualTo(0);
+  @Test
+  public void testCountMethodsShouldBeBoundToCorrectCounters() {
+    assertThat(meterRegistry.get(INVALID_TOKENS_METER_EXPECTED_NAME).tag("cause", "expired").counter().count()).isEqualTo(0);
 
-        securityMetersService.trackTokenExpired();
+    securityMetersService.trackTokenExpired();
 
-        assertThat(meterRegistry.get(INVALID_TOKENS_METER_EXPECTED_NAME).tag("cause", "expired").counter().count()).isEqualTo(1);
+    assertThat(meterRegistry.get(INVALID_TOKENS_METER_EXPECTED_NAME).tag("cause", "expired").counter().count()).isEqualTo(1);
 
-        assertThat(meterRegistry.get(INVALID_TOKENS_METER_EXPECTED_NAME).tag("cause", "unsupported").counter().count()).isEqualTo(0);
+    assertThat(meterRegistry.get(INVALID_TOKENS_METER_EXPECTED_NAME).tag("cause", "unsupported").counter().count()).isEqualTo(0);
 
-        securityMetersService.trackTokenUnsupported();
+    securityMetersService.trackTokenUnsupported();
 
-        assertThat(meterRegistry.get(INVALID_TOKENS_METER_EXPECTED_NAME).tag("cause", "unsupported").counter().count()).isEqualTo(1);
+    assertThat(meterRegistry.get(INVALID_TOKENS_METER_EXPECTED_NAME).tag("cause", "unsupported").counter().count()).isEqualTo(1);
 
-        assertThat(meterRegistry.get(INVALID_TOKENS_METER_EXPECTED_NAME).tag("cause", "invalid-signature").counter().count()).isEqualTo(0);
+    assertThat(meterRegistry.get(INVALID_TOKENS_METER_EXPECTED_NAME).tag("cause", "invalid-signature").counter().count()).isEqualTo(0);
 
-        securityMetersService.trackTokenInvalidSignature();
+    securityMetersService.trackTokenInvalidSignature();
 
-        assertThat(meterRegistry.get(INVALID_TOKENS_METER_EXPECTED_NAME).tag("cause", "invalid-signature").counter().count()).isEqualTo(1);
+    assertThat(meterRegistry.get(INVALID_TOKENS_METER_EXPECTED_NAME).tag("cause", "invalid-signature").counter().count()).isEqualTo(1);
 
-        assertThat(meterRegistry.get(INVALID_TOKENS_METER_EXPECTED_NAME).tag("cause", "malformed").counter().count()).isEqualTo(0);
+    assertThat(meterRegistry.get(INVALID_TOKENS_METER_EXPECTED_NAME).tag("cause", "malformed").counter().count()).isEqualTo(0);
 
-        securityMetersService.trackTokenMalformed();
+    securityMetersService.trackTokenMalformed();
 
-        assertThat(meterRegistry.get(INVALID_TOKENS_METER_EXPECTED_NAME).tag("cause", "malformed").counter().count()).isEqualTo(1);
-    }
+    assertThat(meterRegistry.get(INVALID_TOKENS_METER_EXPECTED_NAME).tag("cause", "malformed").counter().count()).isEqualTo(1);
+  }
 }

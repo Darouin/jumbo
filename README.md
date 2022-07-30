@@ -2,6 +2,14 @@
 
 Jumbo retail application
 
+## Contributing
+
+This project use prettier for formatting, to install the git hooks you'll have to run:
+
+```sh
+npm i
+```
+
 ## Running locally
 
 You'll need:
