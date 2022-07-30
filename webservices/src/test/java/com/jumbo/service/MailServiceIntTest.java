@@ -7,7 +7,6 @@ import static org.mockito.Mockito.*;
 import com.jumbo.IntegrationTest;
 import com.jumbo.config.Constants;
 import com.jumbo.domain.User;
-import io.github.jhipster.config.JHipsterProperties;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -33,6 +32,7 @@ import org.springframework.context.MessageSource;
 import org.springframework.mail.MailSendException;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.thymeleaf.spring5.SpringTemplateEngine;
+import tech.jhipster.config.JHipsterProperties;
 
 /**
  * Integration tests for {@link MailService}.

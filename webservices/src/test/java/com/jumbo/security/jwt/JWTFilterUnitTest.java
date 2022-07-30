@@ -4,7 +4,6 @@ import static org.assertj.core.api.Assertions.*;
 
 import com.jumbo.management.SecurityMetersService;
 import com.jumbo.security.AuthoritiesConstants;
-import io.github.jhipster.config.JHipsterProperties;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import io.micrometer.core.instrument.simple.SimpleMeterRegistry;
@@ -19,6 +18,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.test.util.ReflectionTestUtils;
+import tech.jhipster.config.JHipsterProperties;
 
 class JWTFilterUnitTest {
 
