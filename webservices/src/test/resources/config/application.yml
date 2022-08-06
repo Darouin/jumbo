@@ -18,7 +18,7 @@ spring:
     # Uncomment the following line to enable tests against production database type rather than H2, using Testcontainers
     #active: testcontainers
   application:
-    name: webservices
+    name: jumbo
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     url: jdbc:h2:mem:webservices;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
@@ -68,6 +68,13 @@ spring:
         size: 1
   thymeleaf:
     mode: HTML
+  # Allow SecurityConfiguration to initialize w/o specifying an empty issuer-uri is OK
+  security:
+    oauth2:
+      client:
+        provider:
+          oidc:
+            issuer-uri: http://DO_NOT_CALL:9080/auth/realms/jhipster
 
 server:
   port: 10344

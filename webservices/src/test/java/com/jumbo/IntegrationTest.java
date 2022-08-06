@@ -11,6 +11,6 @@ import org.springframework.boot.test.context.SpringBootTest;
  */
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
-@SpringBootTest(classes = WebservicesApp.class)
+@SpringBootTest(classes = JumboApp.class)
 public @interface IntegrationTest {
 }
